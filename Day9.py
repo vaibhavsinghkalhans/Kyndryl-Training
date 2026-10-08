@@ -1,15 +1,24 @@
+import logging
+# Logging configuration
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s:%(name)s:%(message)s"
+)
+
+logger = logging.getLogger(__name__)
+
 numbers = [64, 34, 25, 12, 22, 11, 90]
 
-print("Original List:", numbers)
+logger.info(f"Original List: {numbers}")
 
 sorted_numbers = sorted(numbers)
-print("Using sorted():", sorted_numbers)
+logger.info(f"Using sorted(): {sorted_numbers}")
 
 numbers.sort()
-print("Using sort():", numbers)
+logger.info(f"Using sort(): {numbers}")
 
 numbers.sort(reverse=True)
-print("Descending:", numbers)
+logger.info(f"Descending: {numbers}")
 
 
 def bubble_sort(arr):
@@ -46,6 +55,7 @@ def selection_sort(arr):
 
 def insertion_sort(arr):
     arr = arr.copy()
+
     for i in range(1, len(arr)):
         key = arr[i]
         j = i - 1
@@ -61,25 +71,25 @@ def insertion_sort(arr):
 
 data = [64, 34, 25, 12, 22, 11, 90]
 
-print("\nTest Data:", data)
-print("Bubble Sort   :", bubble_sort(data))
-print("Selection Sort:", selection_sort(data))
-print("Insertion Sort:", insertion_sort(data))
+logger.info(f"Test Data: {data}")
+logger.info(f"Bubble Sort   : {bubble_sort(data)}")
+logger.info(f"Selection Sort: {selection_sort(data)}")
+logger.info(f"Insertion Sort: {insertion_sort(data)}")
 
 trace = [5, 3, 8, 1]
 
-print("\nBubble Sort Trace")
-print("Start:", trace)
+logger.info("Bubble Sort Trace")
+logger.info(f"Start: {trace}")
 
 for i in range(len(trace)):
     for j in range(len(trace) - i - 1):
         if trace[j] > trace[j + 1]:
             trace[j], trace[j + 1] = trace[j + 1], trace[j]
 
-    print(f"Pass {i + 1}:", trace)
+    logger.info(f"Pass {i + 1}: {trace}")
 
-print("\nComplexity Summary")
-print("Built-in Sort  : O(n log n)")
-print("Bubble Sort    : O(n²)")
-print("Selection Sort : O(n²)")
-print("Insertion Sort : O(n²)")
+logger.info("Complexity Summary")
+logger.info("Built-in Sort  : O(n log n)")
+logger.info("Bubble Sort    : O(n²)")
+logger.info("Selection Sort : O(n²)")
+logger.info("Insertion Sort : O(n²)")
