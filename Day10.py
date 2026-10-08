@@ -1,4 +1,12 @@
-# Trees and Graphs - Beginner Example
+import logging
+
+# Logging configuration
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s:%(name)s:%(message)s"
+)
+
+logger = logging.getLogger(__name__)
 
 # -------- TREE --------
 
@@ -12,14 +20,13 @@ tree = {
 }
 
 def dfs_tree(node):
-    print(node, end=" ")
+    logger.info(f"Visited Tree Node: {node}")
+
     for child in tree[node]:
         dfs_tree(child)
 
-print("Tree Traversal (DFS):")
+logger.info("Tree Traversal (DFS)")
 dfs_tree("A")
-
-print("\n")
 
 # -------- GRAPH --------
 
@@ -34,17 +41,15 @@ graph = {
 
 def dfs_graph(node, visited):
     visited.add(node)
-    print(node, end=" ")
+    logger.info(f"Visited Graph Node: {node}")
 
     for neighbor in graph[node]:
         if neighbor not in visited:
             dfs_graph(neighbor, visited)
 
-print("Graph Traversal (DFS):")
+logger.info("Graph Traversal (DFS)")
 dfs_graph("A", set())
 
-print("\n")
-
-print("Practical Uses:")
-print("Tree -> File System, Organization Chart")
-print("Graph -> Social Networks, Google Maps Navigation")
+logger.info("Practical Uses")
+logger.info("Tree -> File System, Organization Chart")
+logger.info("Graph -> Social Networks, Google Maps Navigation")
