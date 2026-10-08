@@ -1,3 +1,14 @@
+import logging
+
+# Logging configuration
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s:%(name)s:%(message)s"
+)
+
+logger = logging.getLogger(__name__)
+
+
 # Score classifier using if/else and a for loop
 def get_grade(score):
     if score >= 90:
@@ -12,4 +23,4 @@ def get_grade(score):
 scores = [95, 82, 67, 45]
 
 for score in scores:
-    print(f"Score: {score}, Grade: {get_grade(score)}")
+    logger.info(f"Score: {score}, Grade: {get_grade(score)}")
