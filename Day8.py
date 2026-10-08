@@ -1,6 +1,15 @@
+import logging
+
+# Logging configuration
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s:%(name)s:%(message)s"
+)
+
+logger = logging.getLogger(__name__)
+
 # Topic: Data Structures Foundations - Implementing a Stack Using Python Lists
 # A Stack follows the Last In, First Out (LIFO) principle.
-# Useful for tasks such as undo operations, browser history, and function calls.
 
 stack = []
 
@@ -9,13 +18,13 @@ stack.append("Book A")
 stack.append("Book B")
 stack.append("Book C")
 
-print("Stack after pushes:", stack)
+logger.info(f"Stack after pushes: {stack}")
 
 # Pop element from the stack
 removed_item = stack.pop()
-print("Removed item:", removed_item)
+logger.info(f"Removed item: {removed_item}")
 
 # View the top element
-print("Top item:", stack[-1])
+logger.info(f"Top item: {stack[-1]}")
 
-print("Current stack:", stack)
+logger.info(f"Current stack: {stack}")
